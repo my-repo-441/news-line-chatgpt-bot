@@ -1,24 +1,22 @@
 # News Skill
 
 このプロジェクトは、NewsAPIからニュースを取得し、ChatGPTで要約してLINEに送信するシステムです。
+LINEからのリクエストをAPI Gatewayが受け取り、Lambdaに連携し、処理を行った後に、再度LINEにレスポンスします。
 
 ## 必要な環境
 
-- Python 3.7以上
-- Flask
-- requests
+- Python 3.12
+- requirements.txtに記載のライブラリ
+- OpenAIのAPIキー
+- NEWSAPIのAPIキー
+- LINE Developersのアカウント
 
-## セットアップ
+## セットアップ手順
 
 1. リポジトリをクローンします。
-2. 必要なパッケージをインストールします。
-
-```sh
-
-source ~/venv/web-chatgpt-article-checker/bin/activate
-
-pip install -r requirements.txt
-
-python app.py
-
-curl -X POST http://localhost:3000/webhook -H "Content-Type: application/json" -d '{"events":[{"type":"message","replyToken":"dummyToken","message":{"type":"text","text":"Hello"}}]}'
+2. Python3.12環境にて、必要なパッケージをインストールし、zipファイルにまとめ、Lambdaレイヤーとして登録します。
+3. Lambda関数を作成し、ソースコードをアップロードします。
+4. API GatewayとLambdaを連携します。
+5. Lambdaの環境変数に、OpenAI、NEWS API、LINEアカウントのAPIキーなどを登録します。
+6. LINEから欲しいニュース記事のキーワードをトーク画面から送信します。
+7. LINEに送られてきたニュース記事を確認します。
