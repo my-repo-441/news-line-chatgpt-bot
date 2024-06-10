@@ -1,4 +1,4 @@
-# News Skill
+# news-line-chatgpt-botの概要
 
 このプロジェクトは、NewsAPIからニュースを取得し、ChatGPTで要約してLINEに送信するシステムです。
 LINEからのリクエストをAPI Gatewayが受け取り、Lambdaに連携し、処理を行った後に、再度LINEにレスポンスします。
